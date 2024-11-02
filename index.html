@@ -1,53 +1,28 @@
-html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Productos</title>
 </head>
 <body>
     <h1>Captura de Productos</h1>
-    <form id="productForm">
-        <div>
-            <label for="product1">Producto 1:</label>
-            <input type="text" id="product1" required>
-            <label for="price1">Precio 1:</label>
-            <input type="number" id="price1" required>
-        </div>
-        <div>
-            <label for="product2">Producto 2:</label>
-            <input type="text" id="product2" required>
-            <label for="price2">Precio 2:</label>
-            <input type="number" id="price2" required>
-        </div>
-        <div>
-            <label for="product3">Producto 3:</label>
-            <input type="text" id="product3" required>
-            <label for="price3">Precio 3:</label>
-            <input type="number" id="price3" required>
-        </div>
-        <button type="button" onclick="submitForm()">Enviar</button>
+    <form action="procesar.php" method="post">
+        <label for="producto1">Producto 1:</label>
+        <input type="text" id="producto1" name="producto1" required>
+        <label for="precio1">Precio 1:</label>
+        <input type="number" id="precio1" name="precio1" required step="0.01"><br><br>
+
+        <label for="producto2">Producto 2:</label>
+        <input type="text" id="producto2" name="producto2" required>
+        <label for="precio2">Precio 2:</label>
+        <input type="number" id="precio2" name="precio2" required step="0.01"><br><br>
+
+        <label for="producto3">Producto 3:</label>
+        <input type="text" id="producto3" name="producto3" required>
+        <label for="precio3">Precio 3:</label>
+        <input type="number" id="precio3" name="precio3" required step="0.01"><br><br>
+
+        <input type="submit" value="Enviar">
     </form>
-    
-    <script>
-        function submitForm() {
-            const product1 = document.getElementById('product1').value;
-            const price1 = parseFloat(document.getElementById('price1').value);
-            const product2 = document.getElementById('product2').value;
-            const price2 = parseFloat(document.getElementById('price2').value);
-            const product3 = document.getElementById('product3').value;
-            const price3 = parseFloat(document.getElementById('price3').value);
-
-            const totalPrice = price1 + price2 + price3;
-            const discount = totalPrice * 0.16;
-            const totalToPay = totalPrice - discount;
-
-            localStorage.setItem('products', JSON.stringify([product1, product2, product3]));
-            localStorage.setItem('totalToPay', totalToPay);
-
-            window.location.href = 'result.html';
-        }
-    </script>
 </body>
 </html>
