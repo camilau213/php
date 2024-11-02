@@ -13,6 +13,9 @@ html
         const products = JSON.parse(localStorage.getItem('products'));
         const totalToPay = localStorage.getItem('totalToPay');
 
+        console.log('Productos desde localStorage:', products);
+        console.log('Total a pagar desde localStorage:', totalToPay);
+
         if (products && totalToPay) {
             const resultDiv = document.getElementById('results');
             resultDiv.innerHTML = `
