@@ -1,12 +1,12 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $producto1 = $_POST['producto1'];
+    $producto1 = htmlspecialchars($_POST['producto1']);
     $precio1 = (float)$_POST['precio1'];
     
-    $producto2 = $_POST['producto2'];
+    $producto2 = htmlspecialchars($_POST['producto2']);
     $precio2 = (float)$_POST['precio2'];
     
-    $producto3 = $_POST['producto3'];
+    $producto3 = htmlspecialchars($_POST['producto3']);
     $precio3 = (float)$_POST['precio3'];
 
     // Calcular la suma de precios
@@ -26,3 +26,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<h2>Total a pagar: $totalConDescuento</h2>";
 }
 ?>
+ 
